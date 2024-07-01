@@ -1,0 +1,56 @@
+#Q1
+#Explanation: Jump from 1st element to 2nd element as there is only 1 step.
+#Now there are three options 5, 8, or 9. If 8 or 9 is chosen then the end node 9 can be reached. So 3 jumps are made.
+def jump():
+    n=int(input().strip())
+    arr=list(map(int,input().strip().split()))[:n]
+    
+    if n<=1:
+        print(0)
+        return
+    
+    jumps=0
+    current_end=0
+    farthest=0
+    
+    for i in range(n):
+        farthest=max(farthest,i+arr[i])
+        
+        if i==current_end:
+            jumps+=1
+            current_end=farthest
+            if current_end >= n-1:
+                break
+    print(jumps)
+    
+jump()
+
+#Q2
+#Given an array arr[]. The task is to find the inversion count of arr[] where two elements arr[i] and arr[j] form an inversion if a[i] > a[j] and i < j.
+
+def inversion():
+    n=int(input().strip())
+    arr=list(map(int, input().strip().split()))[:n]
+    k=0
+    for i in range(n):
+        for j in range(i+1,n):
+            if(arr[i]>arr[j] and i<j):
+                k=k+1
+            else:
+                continue
+    if(k==0):
+        print("None")
+    else:
+        print(k)
+    
+inversion()
+
+#Q3
+#Given an array of distinct elements. The task is to find triplets in the array whose sum is zero.
+
+
+
+
+
+
+
